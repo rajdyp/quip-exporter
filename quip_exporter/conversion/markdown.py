@@ -37,13 +37,15 @@ def html_to_md_with_images(
     session: requests.Session,
     html: str,
     assets_dir: Path,
-    relative_to: Optional[Path] = None
+    relative_to: Optional[Path] = None,
+    comment_failed_images: bool = True
 ) -> Tuple[str, List[str]]:
     """
     Convert HTML to Markdown while downloading and relinking images.
     
     - Downloads images referenced by <img src="...">
     - Rewrites src to relative path (from relative_to to assets_dir/filename)
+    - Comments out images that fail to download (for Google Drive compatibility)
     - Converts resulting HTML to Markdown
     
     Args:
@@ -51,12 +53,13 @@ def html_to_md_with_images(
         html: HTML content to convert
         assets_dir: Directory to save downloaded images
         relative_to: Directory to calculate image paths relative to (for images in markdown)
+        comment_failed_images: If True, comment out images that fail to download
         
     Returns:
         Tuple of (markdown_text, list of downloaded file paths)
     """
     # Process images and get modified HTML
-    soup, downloaded = process_images(session, html, assets_dir, relative_to)
+    soup, downloaded = process_images(session, html, assets_dir, relative_to, comment_failed_images)
     
     # Convert modified HTML to Markdown
     md_text = html_to_markdown(str(soup))
