@@ -7,6 +7,7 @@ from quip_exporter.models import ThreadMeta
 from quip_exporter.utils import short_sleep, slugify
 from .client import API, DEF_TIMEOUT
 
+
 def get_user_folders(session: requests.Session, include_archived: bool = False) -> List[Dict[str, str]]:
     """
     Get all top-level folders accessible to the current user.

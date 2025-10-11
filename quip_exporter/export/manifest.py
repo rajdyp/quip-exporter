@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from typing import Dict
 
+
 def load_manifest(path: Path) -> Dict[str, dict]:
     """
     Load manifest from JSON file.
@@ -20,6 +21,7 @@ def load_manifest(path: Path) -> Dict[str, dict]:
         except Exception:
             return {}
     return {}
+
 
 def save_manifest(path: Path, data: Dict[str, dict]) -> None:
     """
