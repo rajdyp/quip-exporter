@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quip-exporter"
+version = "1.0.0"
+description = "Export Quip documents as Markdown files (images not included)"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.25.0",
+    "beautifulsoup4>=4.9.0",
+    "markdownify>=0.11.0",
+    "pyyaml>=5.4.0",
+]
+
+[project.scripts]
+quip-export = "quip_exporter.__main__:main"
+
+[tool.setuptools]
+packages = ["quip_exporter", "quip_exporter.utils", "quip_exporter.models", "quip_exporter.api", "quip_exporter.conversion", "quip_exporter.export"]
