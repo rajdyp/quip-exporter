@@ -85,6 +85,8 @@ def export_folder_to_markdown(
         out_dir: Output directory for exported files
         recursive: If True, include subfolders
         maintain_structure: If True, maintain Quip folder structure in output
+    
+    Note: Images that fail to download are automatically commented out for Google Drive compatibility.
     """
     session = requests_session(token)
 
@@ -172,7 +174,8 @@ def export_folder_to_markdown(
                 session, 
                 html, 
                 doc_assets,
-                relative_to=md_path.parent
+                relative_to=md_path.parent,
+                comment_failed_images=True
             )
 
             # Calculate relative path from markdown file to assets directory
