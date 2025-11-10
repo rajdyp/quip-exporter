@@ -62,7 +62,7 @@ Set environment variables to avoid passing arguments each time:
 ```bash
 export QUIP_TOKEN="your_personal_access_token"
 export QUIP_FOLDER_ID="eKLAOA5UvPd"
-export QUIP_OUT="~/Documents/QuipNotes"  # optional, this is the default
+export QUIP_OUT="~/Documents/QuipNotes"  # optional (this is the default)
 ```
 
 Then simply run:
@@ -82,25 +82,25 @@ quip-export
 
 ```
 quip-exporter/
-├── quip_exporter/          # Main package
+├── quip_exporter/             # Main package
 │   ├── __init__.py
-│   ├── __main__.py         # CLI entry point
-│   ├── api/                # Quip API client
-│   │   ├── client.py       # Session & base requests
-│   │   └── endpoints.py    # Folder/thread operations
-│   ├── conversion/         # HTML to Markdown
+│   ├── __main__.py            # CLI entry point
+│   ├── api/                   # Quip API client
+│   │   ├── client.py          # Session & base requests
+│   │   └── endpoints.py       # Folder/thread operations
+│   ├── conversion/            # HTML to Markdown
 │   │   ├── html_processor.py  # Image handling
-│   │   └── markdown.py     # Markdown conversion
-│   ├── export/             # Export orchestration
-│   │   ├── exporter.py     # Main export logic
-│   │   └── manifest.py     # Change tracking
-│   ├── models/             # Data models
-│   │   └── types.py        # ThreadMeta, etc.
-│   └── utils/              # Utilities
-│       ├── filesystem.py   # File operations
-│       ├── network.py      # Retry logic
-│       └── helpers.py      # General helpers
-├── pyproject.toml          # Package configuration
+│   │   └── markdown.py        # Markdown conversion
+│   ├── export/                # Export orchestration
+│   │   ├── exporter.py        # Main export logic
+│   │   └── manifest.py        # Change tracking
+│   ├── models/                # Data models
+│   │   └── types.py           # ThreadMeta, etc.
+│   └── utils/                 # Utilities
+│       ├── filesystem.py      # File operations
+│       ├── network.py         # Retry logic
+│       └── helpers.py         # General helpers
+├── pyproject.toml             # Package configuration
 ├── .env.example
 └── README.md
 ```
